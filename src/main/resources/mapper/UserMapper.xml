@@ -11,4 +11,8 @@
     <select id="login" resultMap="UserResultMap" parameterType="cn.im_1.demo.entity.bo.BUser">
         SELECT id, phone, `name` FROM sys_user WHERE phone = #{u.phone} AND pwd = PASSWORD(#{u.pwd}) LIMIT 1
     </select>
+
+    <select id="getUserList" resultMap="UserResultMap">
+        SELECT id, phone, `name` FROM sys_user
+    </select>
 </mapper>
