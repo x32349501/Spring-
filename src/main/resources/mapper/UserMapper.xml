@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.im_1.demo.mapper.UserMapper">
+
+    <resultMap id="UserResultMap" type="cn.im_1.demo.entity.po.PUser">
+        <result column="id" jdbcType="VARCHAR" property="id"/>
+        <result column="phone" jdbcType="VARCHAR" property="phone"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+    </resultMap>
+
+    <select id="login" resultMap="UserResultMap" parameterType="cn.im_1.demo.entity.bo.BUser">
+        SELECT id, phone, `name` FROM sys_user WHERE phone = #{u.phone} AND pwd = PASSWORD(#{u.pwd}) LIMIT 1
+    </select>
+</mapper>
